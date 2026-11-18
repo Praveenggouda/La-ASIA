@@ -1,0 +1,1182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La'ASIA | Beauty & Spa</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f8f4f1;
+  --white:#fffdfb;
+  --rose:#c77b87;
+  --rose-dark:#a95f6d;
+  --rose-light:#ead1d4;
+  --plum:#60434e;
+  --ink:#362a2c;
+  --muted:#897c7b;
+  --line:#eadedc;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.container{width:min(1180px,90%);margin:auto}
+section{padding:100px 0}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:400}
+h2{font-size:clamp(2.3rem,5vw,4rem);line-height:1.15}
+p{line-height:1.8}
+.gold{color:var(--rose)}
+.tag{
+  color:var(--rose-dark);
+  font-size:11px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  display:block;
+  margin-bottom:18px;
+}
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  background:var(--rose);
+  color:white;
+  border:1px solid var(--rose);
+  padding:15px 25px;
+  font-size:13px;
+  transition:.35s;
+}
+.btn:hover{
+  background:var(--plum);
+  border-color:var(--plum);
+  transform:translateY(-3px);
+}
+.btn-outline{
+  background:transparent;
+  color:var(--ink);
+  border-color:var(--line);
+}
+.btn-outline:hover{color:white}
+
+/* NAV */
+.nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:999;
+  padding:20px 0;
+  transition:.35s;
+}
+.nav.scrolled{
+  background:rgba(255,253,251,.96);
+  backdrop-filter:blur(12px);
+  padding:14px 0;
+  box-shadow:0 4px 20px rgba(60,30,30,.06);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  color:var(--plum);
+  letter-spacing:3px;
+}
+.logo small{
+  display:block;
+  font-family:'DM Sans',sans-serif;
+  text-align:center;
+  font-size:9px;
+  letter-spacing:4px;
+  color:var(--rose-dark);
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  list-style:none;
+}
+.nav-links a{
+  font-size:12px;
+  transition:.3s;
+}
+.nav-links a:hover{color:var(--rose)}
+.menu-btn{
+  display:none;
+  border:0;
+  background:none;
+  font-size:25px;
+  color:var(--plum);
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  padding-top:100px;
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:50px;
+}
+.hero-content{position:relative;z-index:2}
+.hero h1{
+  font-size:clamp(3.3rem,7vw,6.4rem);
+  line-height:1.06;
+  color:var(--plum);
+}
+.hero h1 em{
+  color:var(--rose);
+  font-weight:400;
+}
+.hero-desc{
+  max-width:490px;
+  color:var(--muted);
+  font-size:15px;
+  margin:25px 0 32px;
+}
+.hero-buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+.hero-image{
+  height:600px;
+  position:relative;
+  border-radius:48% 48% 5px 5px;
+  overflow:visible;
+}
+.hero-image .photo{
+  border-radius:48% 48% 5px 5px;
+  overflow:hidden;
+  height:100%;
+  box-shadow:0 25px 70px rgba(100,60,60,.13);
+}
+.hero-image::before{
+  content:'';
+  position:absolute;
+  width:110px;
+  height:110px;
+  background:var(--rose-light);
+  border-radius:50%;
+  top:-30px;
+  right:-30px;
+  animation:float 5s ease-in-out infinite;
+}
+.hero-image::after{
+  content:'';
+  position:absolute;
+  width:90px;
+  height:90px;
+  border:1px solid var(--rose);
+  border-radius:50%;
+  bottom:20px;
+  left:-35px;
+  animation:float 6s ease-in-out infinite reverse;
+}
+.hero-bubble{
+  position:absolute;
+  z-index:3;
+  left:-50px;
+  bottom:60px;
+  background:white;
+  box-shadow:0 15px 50px rgba(70,40,40,.12);
+  padding:20px 25px;
+  border-radius:5px;
+  animation:float 5s infinite;
+}
+.hero-bubble strong{
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  color:var(--rose-dark);
+}
+.hero-bubble span{
+  font-size:11px;
+  color:var(--muted);
+}
+.hero-deco{
+  position:absolute;
+  right:0;
+  top:10%;
+  width:300px;
+  height:300px;
+  background:var(--rose-light);
+  opacity:.25;
+  border-radius:50%;
+  filter:blur(90px);
+  pointer-events:none;
+}
+
+/* INFO STRIP */
+.info-strip{
+  background:var(--plum);
+  color:white;
+  padding:28px 0;
+}
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.info{
+  text-align:center;
+  border-right:1px solid rgba(255,255,255,.18);
+}
+.info:last-child{border:0}
+.info strong{
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:27px;
+  color:#f0c6cd;
+  margin-bottom:5px;
+}
+.info span{
+  font-size:11px;
+  letter-spacing:1px;
+  color:#e6d8dc;
+}
+
+/* ABOUT */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:65px;
+  align-items:center;
+}
+.about-image{
+  height:550px;
+  position:relative;
+}
+.about-image img{
+  border-radius:4px;
+}
+.about-image .frame{
+  position:absolute;
+  inset:20px -20px -20px 20px;
+  border:1px solid var(--rose);
+  z-index:-1;
+}
+.about-content h2{margin-bottom:25px}
+.about-content p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:18px;
+}
+.about-points{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin:30px 0;
+}
+.point{
+  display:flex;
+  gap:10px;
+  font-size:13px;
+}
+.point i{
+  color:var(--rose);
+  font-style:normal;
+}
+
+/* SECTION HEADINGS */
+.heading{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 50px;
+}
+.heading p{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:18px;
+}
+
+/* SERVICES */
+.services{background:#f1e8e6}
+.filters{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.filter{
+  border:1px solid #ddc9c7;
+  background:transparent;
+  color:var(--plum);
+  padding:11px 22px;
+  transition:.3s;
+  font-size:12px;
+}
+.filter:hover,.filter.active{
+  background:var(--rose);
+  color:white;
+  border-color:var(--rose);
+}
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+.service-card{
+  background:var(--white);
+  border-radius:4px;
+  overflow:hidden;
+  transition:transform .4s,box-shadow .4s;
+}
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(90,50,50,.10);
+}
+.service-card.hide{display:none}
+.service-img{
+  height:245px;
+  overflow:hidden;
+  background:var(--rose-light);
+}
+.service-img img{
+  transition:transform .7s;
+}
+.service-card:hover img{transform:scale(1.08)}
+.service-body{padding:25px}
+.service-body h3{
+  font-size:25px;
+  color:var(--plum);
+  margin-bottom:12px;
+}
+.service-body p{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:20px;
+}
+.service-body a{
+  color:var(--rose-dark);
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+/* EXPERIENCE */
+.experience-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+.exp-card{
+  height:390px;
+  position:relative;
+  overflow:hidden;
+  border-radius:4px;
+}
+.exp-card img{transition:.7s}
+.exp-card:hover img{transform:scale(1.06)}
+.exp-card:after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,rgba(40,20,30,.75),transparent 70%);
+}
+.exp-text{
+  position:absolute;
+  bottom:30px;
+  left:30px;
+  color:white;
+  z-index:2;
+}
+.exp-text h3{font-size:32px;margin-bottom:10px}
+.exp-text p{font-size:13px;color:#f0e4e5}
+
+/* GALLERY */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr;
+  grid-template-rows:240px 240px;
+  gap:15px;
+}
+.gallery-item{
+  overflow:hidden;
+  border-radius:4px;
+  background:var(--rose-light);
+}
+.gallery-item:first-child{grid-row:span 2}
+.gallery-item img{transition:.6s}
+.gallery-item:hover img{transform:scale(1.07)}
+
+/* REVIEWS */
+.reviews{background:var(--white)}
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+.review-card{
+  border:1px solid var(--line);
+  padding:30px;
+  background:white;
+  transition:.35s;
+}
+.review-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--rose);
+}
+.stars{
+  color:var(--rose);
+  letter-spacing:3px;
+  margin-bottom:20px;
+}
+.review-card p{
+  font-family:'Playfair Display',serif;
+  font-size:19px;
+  line-height:1.7;
+  margin-bottom:25px;
+}
+.review-card small{
+  color:var(--rose-dark);
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+/* CTA */
+.cta{
+  background:var(--plum);
+  color:white;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta .tag{color:#efc5cd}
+.cta h2{max-width:800px;margin:0 auto 25px}
+.cta p{
+  color:#e4d7db;
+  max-width:550px;
+  margin:0 auto 30px;
+}
+.cta .btn{
+  background:#e5b4bd;
+  color:var(--plum);
+  border-color:#e5b4bd;
+}
+.cta .btn:hover{
+  background:white;
+  border-color:white;
+}
+
+/* LOCATION */
+.location-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+}
+.location-info h2{margin-bottom:25px}
+.location-item{
+  display:flex;
+  gap:15px;
+  padding:22px 0;
+  border-bottom:1px solid var(--line);
+}
+.location-icon{
+  font-size:22px;
+  color:var(--rose);
+  width:35px;
+}
+.location-item h4{
+  font-size:13px;
+  margin-bottom:8px;
+}
+.location-item p{
+  color:var(--muted);
+  font-size:13px;
+}
+.map{
+  min-height:450px;
+  border-radius:4px;
+  overflow:hidden;
+}
+.map iframe{
+  width:100%;
+  height:100%;
+  min-height:450px;
+  border:0;
+}
+
+/* FOOTER */
+.footer{
+  background:#49343d;
+  color:white;
+  padding:65px 0 25px;
+}
+.footer-top{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  flex-wrap:wrap;
+  padding-bottom:40px;
+}
+.footer .logo{color:#f1c5ce}
+.footer-desc{
+  color:#d9c9ce;
+  max-width:350px;
+  font-size:13px;
+  margin-top:20px;
+}
+.footer-links h4{
+  font-size:12px;
+  letter-spacing:2px;
+  color:#efc5cd;
+  margin-bottom:20px;
+}
+.footer-links a{
+  display:block;
+  font-size:13px;
+  color:#d9c9ce;
+  margin-bottom:13px;
+  transition:.3s;
+}
+.footer-links a:hover{color:white}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:22px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+  color:#d0bfc5;
+  font-size:11px;
+}
+
+/* WHATSAPP */
+.wa{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25d366;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+  box-shadow:0 8px 25px rgba(30,150,80,.2);
+  transition:.3s;
+  animation:pulse 2.5s infinite;
+}
+.wa:hover{transform:scale(1.1)}
+.wa svg{width:30px;height:30px;fill:white}
+
+/* ANIMATIONS */
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity .8s,transform .8s;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.hero-content .tag{animation:fadeUp .8s both}
+.hero h1{animation:fadeUp .9s .1s both}
+.hero-desc{animation:fadeUp .9s .2s both}
+.hero-buttons{animation:fadeUp .9s .3s both}
+.hero-image{animation:imageReveal 1.2s .2s both}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes imageReveal{
+  from{opacity:0;transform:translateY(35px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.3)}
+  50%{box-shadow:0 0 0 12px rgba(37,211,102,0)}
+}
+
+@media(max-width:900px){
+  .hero-grid{gap:30px}
+  .hero-image{height:480px}
+  .service-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-rows:220px 220px}
+  .about-grid{gap:40px}
+}
+@media(max-width:700px){
+  section{padding:75px 0}
+  .nav{padding:15px 0}
+  .logo{font-size:23px}
+  .menu-btn{display:block}
+  .nav .nav-book{display:none}
+  .nav-links{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:var(--white);
+    display:none;
+    flex-direction:column;
+    gap:0;
+    padding:15px 5%;
+    box-shadow:0 10px 20px rgba(0,0,0,.05);
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{
+    border-bottom:1px solid var(--line);
+    width:100%;
+  }
+  .nav-links a{display:block;padding:15px 0}
+  .hero{min-height:auto;padding:120px 0 65px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(3.5rem,13vw,5rem)}
+  .hero-image{height:430px;width:90%;margin:20px auto 0}
+  .hero-bubble{left:-15px;bottom:30px}
+  .hero-image::before{right:-15px}
+  .info-grid{grid-template-columns:1fr 1fr;row-gap:20px}
+  .info:nth-child(2){border:0}
+  .info:nth-child(1),.info:nth-child(2){padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.18)}
+  .info:nth-child(3),.info:nth-child(4){padding-top:15px}
+  .about-grid{grid-template-columns:1fr}
+  .about-image{height:400px}
+  .about-image .frame{inset:10px -10px -10px 10px}
+  .service-grid{grid-template-columns:1fr}
+  .service-img{height:260px}
+  .experience-grid{grid-template-columns:1fr}
+  .exp-card{height:330px}
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:220px 180px 180px;
+  }
+  .gallery-item:first-child{grid-row:auto;grid-column:span 2}
+  .review-grid{grid-template-columns:1fr}
+  .location-grid{grid-template-columns:1fr}
+  .map,.map iframe{min-height:350px}
+  .footer-top{flex-direction:column}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a class="logo" href="#home">
+      LA'ASIA
+      <small>BEAUTY · WELLNESS · STYLE</small>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a class="btn nav-book" href="https://wa.me/917411201166?text=Hi%20La%27ASIA%2C%20I%20would%20like%20to%20book." target="_blank">BOOK NOW ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-deco"></div>
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="tag">A LITTLE LUXURY. A LOT OF YOU.</span>
+      <h1>Feel beautiful.<br><em>Feel yourself.</em></h1>
+      <p class="hero-desc">
+        Your beauty deserves a moment of its own.
+        Explore hair, skin and wellness experiences
+        crafted to help you feel refreshed, relaxed and radiant.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn" href="https://wa.me/917411201166?text=Hi%20La%27ASIA%2C%20I%20would%20like%20to%20book." target="_blank">Book Appointment ↗</a>
+        <a class="btn btn-outline" href="#services">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d4?auto=format&fit=crop&w=1200&q=85" alt="Beauty salon interior">
+      </div>
+      <div class="hero-bubble">
+        <strong>4.5 ★</strong>
+        <span>1,161+ Google reviews</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="info-strip">
+  <div class="container info-grid">
+    <div class="info">
+      <strong>4.5 ★</strong>
+      <span>GOOGLE RATING</span>
+    </div>
+    <div class="info">
+      <strong>1,161+</strong>
+      <span>CLIENT REVIEWS</span>
+    </div>
+    <div class="info">
+      <strong>20+</strong>
+      <span>BEAUTY SERVICES</span>
+    </div>
+    <div class="info">
+      <strong>10 PM</strong>
+      <span>DAILY CLOSING</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-image reveal">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=85" alt="Salon hair styling">
+      <div class="frame"></div>
+    </div>
+
+    <div class="about-content reveal">
+      <span class="tag">WELCOME TO LA'ASIA</span>
+      <h2>A place to relax.<br>A place to <span class="gold">glow.</span></h2>
+      <p>
+        La'ASIA Salon is a beauty and wellness destination
+        in Whitefield, Bengaluru. Discover professional
+        hair styling, skincare, grooming and relaxing spa services.
+      </p>
+      <p>
+        Whether you're refreshing your everyday look or
+        treating yourself to a little luxury, let your
+        beauty experience begin here.
+      </p>
+
+      <div class="about-points">
+        <div class="point"><i>✦</i> Hair & styling</div>
+        <div class="point"><i>✦</i> Skin & facial care</div>
+        <div class="point"><i>✦</i> Spa & relaxation</div>
+        <div class="point"><i>✦</i> Beauty & grooming</div>
+      </div>
+      <a class="btn btn-outline" href="#services">Discover More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="heading reveal">
+      <span class="tag">OUR BEAUTY MENU</span>
+      <h2>Designed for your <span class="gold">glow.</span></h2>
+      <p>Explore our beauty, hair, skin and wellness experiences.</p>
+    </div>
+
+    <div class="filters reveal">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="hair">Hair</button>
+      <button class="filter" data-filter="skin">Skin</button>
+      <button class="filter" data-filter="spa">Spa</button>
+      <button class="filter" data-filter="grooming">Grooming</button>
+    </div>
+
+    <div class="service-grid">
+
+      <article class="service-card reveal" data-category="hair">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80" alt="Haircut and styling">
+        </div>
+        <div class="service-body">
+          <h3>Hair Styling</h3>
+          <p>Haircuts, blow dry, shampoo, conditioning and beautiful everyday hairstyles.</p>
+          <a href="https://wa.me/917411201166?text=Hi%2C%20I%20want%20to%20book%20Hair%20Styling." target="_blank">BOOK THIS SERVICE ↗</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-category="hair">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=900&q=80" alt="Hair coloring">
+        </div>
+        <div class="service-body">
+          <h3>Colour & Balayage</h3>
+          <p>Discover beautiful hair colour, balayage and customized colour transformations.</p>
+          <a href="https://wa.me/917411201166?text=Hi%2C%20I%20want%20to%20book%20Hair%20Colour." target="_blank">BOOK THIS SERVICE ↗</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-category="skin">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80" alt="Facial">
+        </div>
+        <div class="service-body">
+          <h3>Facial & Skin Care</h3>
+          <p>Refreshing facial, skin care and beauty treatments for a rejuvenating experience.</p>
+          <a href="https://wa.me/917411201166?text=Hi%2C%20I%20want%20to%20book%20Facial." target="_blank">BOOK THIS SERVICE ↗</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-category="spa">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80" alt="Spa treatment">
+        </div>
+        <div class="service-body">
+          <h3>Spa & Massage</h3>
+          <p>Back massage, foot massage and body care designed for moments of relaxation.</p>
+          <a href="https://wa.me/917411201166?text=Hi%2C%20I%20want%20to%20book%20Spa%20or%20Massage." target="_blank">BOOK THIS SERVICE ↗</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-category="grooming">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80" alt="Manicure">
+        </div>
+        <div class="service-body">
+          <h3>Manicure & Pedicure</h3>
+          <p>Hand and foot treatments to refresh, pamper and complete your beauty routine.</p>
+          <a href="https://wa.me/917411201166?text=Hi%2C%20I%20want%20to%20book%20Manicure%20or%20Pedicure." target="_blank">BOOK THIS SERVICE ↗</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-category="grooming">
+        <div class="service-img">
+         <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=900&q=80" alt="Waxing and beauty" loading="lazy">
+        </div>
+        <div class="service-body">
+          <h3>Waxing & Threading</h3>
+          <p>Body waxing, eyebrow threading and personalized grooming services.</p>
+          <a href="https://wa.me/917411201166?text=Hi%2C%20I%20want%20to%20book%20Waxing%20or%20Threading." target="_blank">BOOK THIS SERVICE ↗</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-category="grooming">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80" alt="Men's grooming">
+        </div>
+        <div class="service-body">
+          <h3>Men's Grooming</h3>
+          <p>Men's haircut, shaving and grooming services for a fresh, refined look.</p>
+          <a href="https://wa.me/917411201166?text=Hi%2C%20I%20want%20to%20book%20Men%27s%20Grooming." target="_blank">BOOK THIS SERVICE ↗</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-category="skin">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=900&q=80" alt="Body care">
+        </div>
+        <div class="service-body">
+          <h3>Body Scrub & Care</h3>
+          <p>Body scrubs, bleach and beauty care services for a refreshing experience.</p>
+          <a href="https://wa.me/917411201166?text=Hi%2C%20I%20want%20to%20book%20Body%20Care." target="_blank">BOOK THIS SERVICE ↗</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-category="hair">
+        <div class="service-img">
+<img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80" alt="Beauty service" loading="lazy">        </div>
+        <div class="service-body">
+          <h3>Hair & Beauty Care</h3>
+          <p>Personalized salon care and beauty treatments to complement your style.</p>
+          <a href="https://wa.me/917411201166?text=Hi%2C%20I%20want%20to%20book%20Beauty%20Care." target="_blank">BOOK THIS SERVICE ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section>
+  <div class="container">
+    <div class="heading reveal">
+      <span class="tag">MORE THAN A SALON</span>
+      <h2>Every visit, a little <span class="gold">escape.</span></h2>
+      <p>Take a moment for yourself and enjoy the beauty of feeling good.</p>
+    </div>
+
+    <div class="experience-grid">
+      <div class="exp-card reveal">
+        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1000&q=80" alt="Hair transformation">
+        <div class="exp-text">
+          <h3>Your Style, Your Story</h3>
+          <p>Discover a look that feels like you.</p>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1000&q=80" alt="Relaxation spa">
+        <div class="exp-text">
+          <h3>Your Time to Relax</h3>
+          <p>Slow down and enjoy a little self-care.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="heading reveal">
+      <span class="tag">BEAUTY INSPIRATION</span>
+      <h2>A glimpse of <span class="gold">beauty.</span></h2>
+      <p>Explore the world of beauty, style and relaxation.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d4?auto=format&fit=crop&w=900&q=80" alt="Salon">
+      </div>
+      <div class="gallery-item reveal">
+<img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80" alt="Hair styling" loading="lazy">      </div>
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80" alt="Facial">
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=80" alt="Nails">
+      </div>
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80" alt="Spa">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="heading reveal">
+      <span class="tag">CLIENT FEEDBACK</span>
+      <h2>Real words. Real <span class="gold">experiences.</span></h2>
+      <p>Google rating 4.5 ★ · 1,161+ reviews</p>
+    </div>
+
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Service done by the staff is wonderful and worth of their price."</p>
+        <small>GOOGLE CUSTOMER REVIEW</small>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"The facial was a rejuvenating experience; my skin felt refreshed and glowing."</p>
+        <small>GOOGLE CUSTOMER REVIEW</small>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="stars">★★★☆☆</div>
+        <p>"Rude Behaviour of the staff, not at all customer friendly and prices are too high."</p>
+        <small>GOOGLE CUSTOMER REVIEW</small>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:35px" class="reveal">
+      <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=La%27ASIA+Salon+Whitefield+Bengaluru" target="_blank">Read Google Reviews ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container reveal">
+    <span class="tag">YOUR BEAUTY MOMENT</span>
+    <h2>Ready for your next <span style="color:#efc5cd">glow?</span></h2>
+    <p>Make time for yourself. Connect with our salon and plan your next beauty experience.</p>
+    <a class="btn" href="https://wa.me/917411201166?text=Hi%20La%27ASIA%2C%20I%20would%20like%20to%20book." target="_blank">Book Your Appointment ↗</a>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="contact">
+  <div class="container location-grid">
+    <div class="location-info reveal">
+      <span class="tag">COME VISIT US</span>
+      <h2>Find us in <span class="gold">Whitefield.</span></h2>
+
+      <div class="location-item">
+        <div class="location-icon">⌖</div>
+        <div>
+          <h4>ADDRESS</h4>
+          <p>144/151, 2nd Main Rd, Nallurhalli,<br>Whitefield, Bengaluru, Karnataka 560066</p>
+        </div>
+      </div>
+
+      <div class="location-item">
+        <div class="location-icon">☎</div>
+        <div>
+          <h4>PHONE</h4>
+          <p>074112 01166</p>
+          <a class="gold" href="tel:+917411201166">Call Now</a>
+        </div>
+      </div>
+
+      <div class="location-item">
+        <div class="location-icon">◷</div>
+        <div>
+          <h4>OPENING HOURS</h4>
+          <p>Open daily · Closes at 10 PM</p>
+        </div>
+      </div>
+
+      <div class="location-item">
+        <div class="location-icon">✦</div>
+        <div>
+          <h4>OUR SERVICES</h4>
+          <p>Hair · Skin · Spa · Grooming</p>
+        </div>
+      </div>
+
+      <br>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=La%27ASIA+Salon+144%2F151+2nd+Main+Road+Nallurhalli+Whitefield+Bengaluru" target="_blank">Get Directions ↗</a>
+    </div>
+
+    <div class="map reveal">
+      <iframe
+        src="https://maps.google.com/maps?q=La%27ASIA%20Salon%20144%2F151%2C%202nd%20Main%20Rd%2C%20Nallurhalli%2C%20Whitefield%2C%20Bengaluru&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        loading="lazy"
+        title="La'ASIA Salon Google Map">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="#home" class="logo">
+          LA'ASIA
+          <small>BEAUTY · WELLNESS · STYLE</small>
+        </a>
+        <p class="footer-desc">
+          A beauty and wellness destination in Whitefield,
+          Bengaluru. Discover hair, skin and spa experiences.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>EXPLORE</h4>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>CONTACT</h4>
+        <a href="tel:+917411201166">074112 01166</a>
+        <a href="#contact">Whitefield, Bengaluru</a>
+        <a href="https://wa.me/917411201166" target="_blank">WhatsApp</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=La%27ASIA+Salon+Whitefield" target="_blank">Google Maps</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> La'ASIA Salon. All rights reserved.</span>
+      <span>BEAUTY · WELLNESS · STYLE</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="wa" href="https://wa.me/917411201166?text=Hi%20La%27ASIA%2C%20I%20would%20like%20to%20book." target="_blank" aria-label="Book on WhatsApp">
+<svg viewBox="0 0 24 24">
+<path d="M20.52 3.48A11.8 11.8 0 0 0 12.06 0C5.49 0 .15 5.34.15 11.91c0 2.1.55 4.15 1.6 5.96L0 24l6.29-1.65a11.92 11.92 0 0 0 5.77 1.47h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.17-3.46-8.43zM12.06 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.73.98.99-3.64-.24-.38a9.88 9.88 0 0 1-1.52-5.26c0-5.47 4.45-9.92 9.93-9.92a9.85 9.85 0 0 1 7.03 2.91 9.86 9.86 0 0 1 2.9 7.01c0 5.48-4.45 9.93-9.92 9.93zm5.45-7.43c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.09 4.48.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
+</svg>
+</a>
+
+<script>
+/* NAVIGATION */
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('scrolled',window.scrollY>40);
+});
+
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+
+menuBtn.addEventListener('click',()=>{
+  navLinks.classList.toggle('open');
+  menuBtn.textContent=navLinks.classList.contains('open')?'✕':'☰';
+});
+
+navLinks.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    navLinks.classList.remove('open');
+    menuBtn.textContent='☰';
+  });
+});
+
+/* REVEAL */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* SERVICE FILTER */
+document.querySelectorAll('.filter').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const category=btn.dataset.filter;
+
+    document.querySelectorAll('.service-card').forEach(card=>{
+      const match=category==='all'||card.dataset.category===category;
+      card.classList.toggle('hide',!match);
+    });
+  });
+});
+
+/* IMAGE FALLBACK */
+document.querySelectorAll('img').forEach(img=>{
+  img.addEventListener('error',()=>{
+    img.style.display='none';
+    img.parentElement.style.background=
+      'linear-gradient(135deg,#ead1d4,#c77b87,#60434e)';
+  });
+});
+
+/* YEAR */
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
